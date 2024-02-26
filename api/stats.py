@@ -2,7 +2,7 @@ import os
 from flask import Flask, jsonify, abort
 from flask_cors import CORS
 import requests
-CORS(app)
+CORS(app, origins="*")
 
 
 # GitHub API Token
