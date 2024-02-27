@@ -2,7 +2,7 @@ import os
 from flask import Flask, jsonify, abort, render_template
 import requests
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder=".")
 
 # GitHub API Token
 TOKEN = os.getenv("GITHUB_API_TOKEN")
