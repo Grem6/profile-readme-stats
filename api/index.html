@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@Gremmy</title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="WRAPPER">
+      <div class="header">
+        <div class="hamburger-menu" id="hamburgerMenu">
+          <div class="menu-icon" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+          <div class="menu-content">
+            <p>This page displays the GitHub API status.</p>
+            <p>
+              It shows various statistics such as repositories, followers, and
+              commits.
+            </p>
+            <p>Feel free to explore!</p>
+          </div>
+        </div>
+        <div class="image-parent">
+          <img
+            class="profile-image"
+            src="https://camo.githubusercontent.com/ff8fdadfeeee9500076ba57d47f1bffd86ab3318bfa2717a2ea0d44d7398c9c6/68747470733a2f2f696e7374616772616d2e66636f6b392d312e666e612e666263646e2e6e65742f762f7435312e323838352d31392f3338303437383731355f3935373937393235383632393030385f323132353631363232363135353830363034315f6e2e6a70673f7374703d6473742d6a70675f7333323078333230265f6e635f68743d696e7374616772616d2e66636f6b392d312e666e612e666263646e2e6e6574265f6e635f6361743d313038265f6e635f6f68633d50504d6f4a346d4d454a734158397a694767672665646d3d414f51316330774241414141266363623d372d35266f683d30305f4166423571736b38734a3947494533343270396a7a614c49584a32495a31586f316563484450494c6f526f4b4c77266f653d3635453045373144265f6e635f7369643d386233353436"
+            alt=""
+          />
+        </div>
+        <div class="username-parent">
+          <span class="username">@Gremmy</span>
+        </div>
+        <div class="bio">
+          <!-- <span>Developer | Hobby Artist | Student</span> -->
+        </div>
+        <div class="api-parent">
+          <!-- Inside the .api-parent div -->
+          <span class="api-child"
+            ><i class="fas fa-code-branch"></i> Repositories</span
+          >
+          <span class="api-child"><i class="fas fa-users"></i> Followers</span>
+          <span class="api-child"><i class="fas fa-code"></i> Commits</span>
+        </div>
+        <div class="api-values">
+          <div class="api-values-child" id="followers">0</div>
+          <div class="api-values-child" id="repositories">0</div>
+          <div class="api-values-child" id="commits">0</div>
+        </div>
+      </div>
+      <div class="pill-container">
+        <span class="pill">C</span>
+        <span class="pill">C++</span>
+        <span class="pill">CSS3</span>
+        <span class="pill">HTML5</span>
+        <span class="pill">JavaScript</span>
+        <span class="pill">Markdown</span>
+        <span class="pill">Python</span>
+        <span class="pill">Solidity</span>
+        <span class="pill">Github Pages</span>
+        <span class="pill">Google Cloud</span>
+        <span class="pill">Heroku</span>
+        <span class="pill">Netlify</span>
+        <span class="pill">Vercel</span>
+        <span class="pill">Anaconda</span>
+        <span class="pill">Bootstrap</span>
+        <span class="pill">Django</span>
+        <span class="pill">FastAPI</span>
+        <span class="pill">Flask</span>
+        <span class="pill">Green Sock</span>
+        <span class="pill">jQuery</span>
+        <span class="pill">NodeJS</span>
+        <span class="pill">OpenCV</span>
+        <span class="pill">OpenGL</span>
+        <span class="pill">Socket.io</span>
+        <span class="pill">WebGL</span>
+      </div>
+
+      <!-- <div class="bento-box-container">
+        <div class="bento-box-item">Bento Box Item 1</div>
+        <div class="bento-box-item">Bento Box Item 2</div>
+        <div class="bento-box-item">Bento Box Item 3</div>
+      </div> -->
+    </div>
+    <script>
+      const USERNAME = "Grem6";
+      const BASE_URL = "https://api.github.com/users";
+
+      function fetchFollowersCount() {
+        fetch(`${BASE_URL}/${USERNAME}`)
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById("followers").innerText = data.followers;
+          })
+          .catch((error) =>
+            console.error("Error fetching followers count:", error)
+          );
+      }
+
+      function fetchRepositoriesCount() {
+        fetch(`${BASE_URL}/${USERNAME}/repos`)
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById("repositories").innerText = data.length;
+          })
+          .catch((error) =>
+            console.error("Error fetching repositories count:", error)
+          );
+      }
+
+      function fetchCommitsCount() {
+        fetch(`${BASE_URL}/${USERNAME}/events`)
+          .then((response) => response.json())
+          .then((data) => {
+            const pushEvents = data.filter(
+              (event) => event.type === "PushEvent"
+            );
+            document.getElementById("commits").innerText = pushEvents.length;
+          })
+          .catch((error) =>
+            console.error("Error fetching commits count:", error)
+          );
+      }
+
+      // Fetch data when the page loads
+      // fetchFollowersCount();
+      // fetchRepositoriesCount();
+      // fetchCommitsCount();
+      function toggleMenu() {
+        const menu = document.getElementById("hamburgerMenu");
+        menu.classList.toggle("menu-open");
+      }
+    </script>
+  </body>
+</html>

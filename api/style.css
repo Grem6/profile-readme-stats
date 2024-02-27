@@ -1,0 +1,255 @@
+/* Reset some default styles */
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+/* Apply background color and font */
+body {
+  background-color: #fafafa;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+/* Centering the wrapper */
+.WRAPPER {
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: auto;
+}
+
+.image-parent {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.username-parent {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  width: 100%;
+}
+
+/* Header styles */
+.header {
+  height: 400px;
+  margin-top: 50px;
+  background: linear-gradient(135deg, #4caf50, #2196f3);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  position: relative;
+}
+
+.hamburger-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.menu-icon {
+  width: 25px;
+  height: 10px;
+  cursor: pointer;
+}
+
+.bar {
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.menu-content {
+  display: none;
+  position: absolute;
+  top: 30px; /* Adjust the positioning */
+  right: 0;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  font-size: 14px; /* Adjust the font size */
+}
+
+.menu-content p {
+  margin: 5px 0;
+}
+
+.menu-open .bar:first-child {
+  transform: translateY(6px) rotate(-45deg); /* Adjust the positioning and rotation */
+}
+
+.menu-open .bar:last-child {
+  transform: translateY(-6px) rotate(45deg); /* Adjust the positioning and rotation */
+}
+
+.menu-open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-open .menu-content {
+  display: block;
+}
+
+/* Profile image styles */
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-image:hover {
+  transform: translateY(-2px); /* Add lift effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover */
+}
+
+/* Username styles */
+.username {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff; /* White text color */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add text shadow */
+  margin-right: 20px;
+}
+
+.bio {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px; /* Adjust margin as needed */
+  color: #ffffff; /* Color of the bio text */
+  font-size: 12px; /* Adjust font size */
+  font-weight: bold;
+}
+
+/* API values container styles */
+.api-parent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Center horizontally */
+  margin-top: 50px;
+}
+
+/* API values styles */
+.api-child {
+  font-size: 16px;
+  color: #ffffff;
+  margin-right: 10px;
+  cursor: pointer; /* Add pointer cursor */
+  transition: color 0.3s;
+}
+
+.api-child:hover {
+  color: #ffc107; /* Change color on hover */
+}
+
+/* API values container styles */
+.api-values {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+/* API values styles */
+.api-values-child {
+  font-size: 18px;
+  font-weight: 500;
+  margin-right: 210px;
+}
+
+.api-values-child:nth-child(3) {
+  margin-left: -30px;
+}
+.api-values-child:nth-child(2) {
+  margin-left: -15px;
+}
+.api-values-child:nth-child(1) {
+  margin-left: 45px;
+}
+
+.bento-box-container {
+  display: grid;
+  grid-template-columns: repeat(2, 260px); /* Adjust the width as needed */
+  grid-auto-rows: 200px;
+  gap: 20px;
+  margin-top: 50px;
+  animation: slide-in 1s ease forwards;
+}
+
+.bento-box-item {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+  animation: slide-up 1s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pill-container {
+  margin-top: 20px;
+  width: 520px;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pill {
+  display: inline-block;
+  background-color: #ffffff; /* White background */
+  color: #333333; /* Dark text color */
+  border: none; /* Remove default border */
+  border-radius: 20px; /* Rounded corners */
+  padding: 8px 16px; /* Adjust padding as needed */
+  margin-right: 8px; /* Add some spacing between pills */
+  margin-bottom: 10px;
+  font-size: 14px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(0, 0, 0, 0.05),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5); /* Add box shadow for 3D effect */
+  transition: transform 0.3s, box-shadow 0.3s; /* Add transition for smooth effect */
+}
+
+.pill:hover {
+  transform: translateY(-2px); /* Add slight lift effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5); /* Adjust box shadow on hover */
+}
