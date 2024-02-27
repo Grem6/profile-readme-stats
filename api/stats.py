@@ -1,5 +1,5 @@
 import os
-from flask import Flask, jsonify, abort
+from flask import Flask, jsonify, abort, render_template
 import requests
 
 app = Flask(__name__)
@@ -51,7 +51,7 @@ def commits_count():
 # Endpoint for the root path
 @app.route("/")
 def index():
-    return "Welcome to the GitHub API Wrapper"
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
